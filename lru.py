@@ -1,13 +1,13 @@
 from datetime import datetime
 
-class LRUItem(obj):
+class LRUItem(object):
     #items in cache.
     def __init__(self,key,data):
         self.key = key
         self.data = data
         self.timestamp = datetime.now()
 
-class LRUCache(obj):
+class LRUCache(object):
     def __init__(self,len,time = None):
         self.len = len
         self.time = time
