@@ -1,4 +1,4 @@
-from lru import *
+from LRU import *
 from time import sleep
 
 def output(cache):
