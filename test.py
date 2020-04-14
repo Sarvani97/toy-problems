@@ -11,27 +11,23 @@ e7 = LRUItem(7,'seven')
 class LruTest:
     cache = LRUCache()
     cache.put(e1)
-
     result = cache.get_cache()
     assert result == [(1, 'one')]
 
     cache.put(e2)
     cache.put(e3)
     cache.put(e4)
-    cache.put(e5)
-
-    result = cache.get(10)
-
+    result = cache.get(7)
     assert result == "No such key"
 
+    cache.put(e5)
+    result = cache.get_cache()
+    assert result == [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four'), (5, 'five')]
+
     cache.put(e6)
-    result == cache.get_cache()
-    assert result == [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four'), (5, 'five'), (6, 'six')]
+    result = cache.get_cache()
+    assert result == [(2, 'two'), (3, 'three'), (4, 'four'), (5, 'five'), (6, 'six')]
 
-    result = cache.put(e4)
+    result = cache.put(e5)
     assert result == "key already exists"
-
-    print("All test cases passed")
-
-
-
+    print("All test Cases passed")

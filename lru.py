@@ -12,7 +12,7 @@ class LRUCache(object):
         for d in self.data_list:
             if d[0] == obj.key:
                 #print("key already exists")
-                return ("key already exists")
+                return "key already exists"
         if(len(self.data_list) == 4):
             self.data_list.pop(0)
             self.data_list.append((obj.key,obj.val))
@@ -27,7 +27,7 @@ class LRUCache(object):
                 return
         if flag == False:
             #print("No such key")
-            return ("No such key")
+            return "No such key"
 
     def get_cache(self):
         #print(str(self.data_list)[1:-1])
