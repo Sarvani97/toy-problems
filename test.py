@@ -1,5 +1,4 @@
 from lru import *
-from time import sleep
 
 e1 = (1,'one')
 e2 = (2,'two')
@@ -11,15 +10,15 @@ e7 = (7,'seven')
 
 class LruTest:
     cache = LRUCache()
-    cache.insert(e1)
+    cache.put(e1)
 
     result = cache.get_cache()
     assert result == [(1,'one')]
 
-    cache.insert(e2)
-    cache.insert(e3)
-    cache.insert(e4)
-    cache.insert(e5)
+    cache.put(e2)
+    cache.put(e3)
+    cache.put(e4)
+    cache.put(e5)
 
     result = cache.get(10)
 
