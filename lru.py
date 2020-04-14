@@ -1,35 +1,36 @@
 class LRUItem(object):
-    #items in cache.
     def __init__(self,key,val):
         self.key = key
         self.val = val
 
 class LRUCache(object):
     def __init__(self):
-        self.data_list = []
-
-    def put(self,obj):
-        for d in self.data_list:
-            if d[0] == obj.key:
-                #print("key already exists")
-                return "key already exists"
-        if(len(self.data_list) == 4):
-            self.data_list.pop(0)
-            self.data_list.append((obj.key,obj.val))
-        else:
-            self.data_list.append((obj.key,obj.val))
+        self.list = []
 
     def get(self,key):
-        flag = False
-        for d in self.data_list:
-            if d[0] == key:
-                flag = True
+        flag = 0
+        for l in self.list:
+            if(l[0] == key):
+                flag = 1
+                print(l)
                 return
-        if flag == False:
-            #print("No such key")
-            return "No such key"
+        if(flag == 0):
+            return ("Key doesn't exist in the cache")
+
+    def put(self,obj):
+        for i in self.list:
+            if(i[0] == obj.key):
+                return "Key already Exists"
+        if(len(self.list) == 5):
+            self.list.pop(0)
+            self.list.append((obj.key,obj.val))
+        else:
+            self.list.append((obj.key,obj.val))
 
     def get_cache(self):
-        #print(str(self.data_list)[1:-1])
-        return self.data_list
+        return self.list
 
+
+
+
+ 
