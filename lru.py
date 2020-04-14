@@ -14,12 +14,12 @@ class LRUCache(object):
         self.hash = {}
         self.data_list = []
 
-def insert(self,data):
-    pass
+    def put(self,data):
+        pass
 
-def delete(self,data):
-    pass
+    def get(self,data):
+        pass
 
-def validate(self):
-    pass
+    def get_cache(self):
+        pass
 
