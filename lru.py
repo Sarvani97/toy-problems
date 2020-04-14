@@ -8,23 +8,28 @@ class LRUCache(object):
     def __init__(self):
         self.data_list = []
 
-    def put(self,data):
+    def put(self,obj):
         for d in self.data_list:
-            if d[0] == data.key:
-                return "key already exists"
+            if d[0] == obj.key:
+                #print("key already exists")
+                return ("key already exists")
         if(len(self.data_list) == 4):
             self.data_list.pop(0)
-            self.data_list.append((data.key,data.val))
+            self.data_list.append((obj.key,obj.val))
         else:
-            self.data_list.append((data.key,data.val))
+            self.data_list.append((obj.key,obj.val))
 
     def get(self,key):
-        for i in self.data_list:
-            if i[0] == key:
-                print("key already exists")
-            else:
-                print("key doesn't exist")
+        flag = False
+        for d in self.data_list:
+            if d[0] == key:
+                flag = True
+                return
+        if flag == False:
+            #print("No such key")
+            return ("No such key")
 
     def get_cache(self):
+        #print(str(self.data_list)[1:-1])
         return self.data_list
 
